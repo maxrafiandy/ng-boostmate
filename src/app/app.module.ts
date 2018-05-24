@@ -1,33 +1,45 @@
-// default imports
-import { BrowserModule } from '@angular/platform-browser';
+// default import
 import { NgModule } from '@angular/core';
-import { AppComponent } from './app.component';
-
-// material imports
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule,
+  ReactiveFormsModule } from '@angular/forms';
 
-// project's module imports
+// project's modules import
 import { MaterialModule } from './material.module';
 import { BoostrapModule } from './boostrap.module';
-import { RouteModule } from './route.module';
+import { RoutingModule,
+  routingComponents } from './routing.module';
 
-import { LoginComponent } from './pages/login/login.component';
+// project's components import
+import { AppComponent } from './app.component';
+
+// project's services import
+import { AuthService } from './services/auth.service';
+
+// third parties import
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    routingComponents
   ],
 
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
     BoostrapModule,
-    RouteModule
+    AngularFontAwesomeModule,
+    RoutingModule
   ],
 
-  providers: [],
+  providers: [
+    AuthService
+  ],
 
   bootstrap: [
     AppComponent
